@@ -10,7 +10,7 @@ namespace ALG_LAB1
         static void Main(string[] args)
         {
             
-            // 1 Задание "Постоянная функция"
+            // 1 Задание "Постоянная функция" +
             static void Task1() {
                 string path = @"..\..\Data1.csv";
                 int N = 2000;
@@ -26,7 +26,7 @@ namespace ALG_LAB1
                 }
             }
 
-            // 2 Алгоритм "Сумма элементов"
+            // 2 Алгоритм "Сумма элементов" +
             static void Task2() {
                 string path2 = @"..\..\Data2.csv";
                 for (int i = 0; i < 2000; i++) {
@@ -42,7 +42,7 @@ namespace ALG_LAB1
                 }
             }
 
-            // 3 Задание "Произведение элементов"
+            // 3 Задание "Произведение элементов" ?
             static void Task3() {
                 string path3 = @"..\..\Data3.csv";
                 for (int i = 1; i < 2000; i++)
@@ -60,7 +60,7 @@ namespace ALG_LAB1
                 }
             }
 
-            // 5 Алгоритм "Сортировка пузырьком"
+            // 5 Алгоритм "Сортировка пузырьком" +
             static void Task5() {
                 string path = @"..\..\Data5.csv";
                 int N = 2000;
@@ -98,7 +98,62 @@ namespace ALG_LAB1
                 }
             }
             
-            Task5();
+            // 6 Алгоритм "Быстрая сортировка"
+            static void Task6() {
+                static void Quick_Sort(int[] arr, int left, int right) {
+                    if (left < right) {
+                        int pivot = Partition(arr, left, right);
+                        if (pivot > 1) {
+                            Quick_Sort(arr, left, pivot - 1);
+                        }
+                        if (pivot + 1 < right) {
+                            Quick_Sort(arr, pivot + 1, right);
+                        }
+                    }
+                }
+                static int Partition(int[] arr, int left, int right) {
+                    int pivot = arr[left];
+                    while (true) {
+                        while (arr[left] < pivot) {
+                            left++;
+                        }
+                        while (arr[right] > pivot) {
+                            right--;
+                        }
+                        if (left < right) {
+                            if (arr[left] == arr[right]) return right;
+
+                            int temp = arr[left];
+                            arr[left] = arr[right];
+                            arr[right] = temp;
+                        }
+                        else {
+                            return right;
+                        }
+                    }
+                }
+                
+                string path = @"..\..\Data6.csv";
+                
+                int[] arr = new int[2000];
+                for (int i = 1; i < 2000; i++) {
+                    for (int j = 1; j <= i; j++) {
+                        Random rnd = new Random();
+                        arr[j] = rnd.Next(1, 2000);
+                    }
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    Quick_Sort(arr, 0, arr.Length-1);
+                    stopwatch.Stop();
+                    string time = (stopwatch.ElapsedTicks).ToString();
+                    File.AppendAllText(path, time + ";");
+                }
+
+                
+                
+            }
+            
+            Task6();
         }
     }
 }
