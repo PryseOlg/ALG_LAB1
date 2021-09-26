@@ -162,15 +162,51 @@ namespace ALG_LAB1 {
                     }
                     int n = arr.Length;
                     
+                    //Console.Write("Given Array is\n");
+                    //GFG.printArray(arr, n);
+                    
                     // Function Call
                     GFG.timSort(arr, n);
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
                     File.AppendAllText(path7, time + ";");
+                    
+                    //Console.Write("After Sorting Array is\n");
+                    //GFG.printArray(arr, n);
                 }
             }
             
-            // III-Oleg Алгоритм "Сортировка в двумерном массиве" +
+            // I-8 Алгоритм "Возведение в степень" ?
+            static void DoTaskI8() {
+                string path8 = @"..\..\Data8.csv";
+                int n = 7; // Степень числа
+                for (int i = 1; i < 10000; i++) { // Лимит
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    decimal c = i;
+                    decimal f = 1;
+                    int k = n;
+                    while (k != 0) {
+                        if (k % 2 == 0) {
+                            c = c * c;
+                            k = k / 2;
+                        }
+                        else {
+                            f = f * c;
+                            k = k - 1;
+                        }
+                    }
+                    stopwatch.Stop();
+                    string time = (stopwatch.ElapsedTicks).ToString();
+                    File.AppendAllText(path8, time + ";");
+                    Console.WriteLine(f);
+                    
+                }
+                
+            }
+            
+            
+            // III-Oleg Алгоритм "Сортировка в двумерном массиве по строке" +
             static void DoTaskOleg() {
                  static void print(int[,] mass)
                 {
@@ -203,6 +239,10 @@ namespace ALG_LAB1 {
                              for (int j = 0; j < n; j++)
                                  mass[i, j] = rnd.Next(50);
                          }
+                         //Array.Copy(mass, 0, mass1, 0, mass.Length); 
+                         //Console.WriteLine("Начальная состояние  ");
+                         //print(mass);
+                         
                          // Сортировка по заданной строке
                          for (int j = 0; j < n; j++)
                              mass1dim[j] = mass[строка, j];
@@ -212,7 +252,9 @@ namespace ALG_LAB1 {
                          for (int j = 0; j < n  ; j++)
                          for (int g = 0; g < n; g++)
                              mass[j , g] = mass1[j , index[g]];
- 
+                         
+                         //Console.WriteLine("Отсортировано по заданной строке {0}", строка + 1);
+                         //print(mass);
                          
                          stopwatch.Stop();
                          string time = (stopwatch.ElapsedTicks).ToString();
@@ -220,7 +262,8 @@ namespace ALG_LAB1 {
                      }
                  }
             }
-            
+
+            DoTaskI8();
         }
     }
     class GFG
