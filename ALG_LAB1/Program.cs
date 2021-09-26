@@ -146,45 +146,8 @@ namespace ALG_LAB1 {
                 }
             }
 
-
-
-            // 10-1 Алгоритм "Формула сочетания" (Теория вероятности) сука блять не подходит для анализа
-            static void DoTaskIII1() {
-                static decimal fact(int x) {
-                    decimal answer = 1;
-                    for (int i = x; i > 1; i--) {
-                        answer = answer * i;
-                    }
-
-                    return answer;
-                }
-
-                string path10_1 = @"..\..\Data10-1.csv";
-                int n = 27;
-                for (int j = 1; j <= n; j++) {
-
-                    for (int i = 1; i < n; i++) {
-                        Stopwatch stopwatch = new Stopwatch();
-                        stopwatch.Start();
-                        decimal a = fact(n);
-                        decimal b = fact(i);
-                        decimal c = fact(n - i);
-                        b = b * c;
-                        a = a / b;
-                        stopwatch.Stop();
-                        string time = (stopwatch.ElapsedTicks).ToString();
-                        File.AppendAllText(path10_1, time + ";");
-
-                    }
-
-                }
-
-
-
-            }
-
-            // 10-1 Алгоритм "Сортировка в двумерном массиве"
-            static void DoTask10_1() {
+            // 10_1 Алгоритм "Сортировка в двумерном массиве"
+            static void DoTaskOleg() {
                  static void print(int[,] mass)
                 {
                     int n = mass.GetLength(0);
@@ -197,7 +160,7 @@ namespace ALG_LAB1 {
                         Console.WriteLine();
                     }
                 }
-                 string path10_1 = @"..\..\Data10-1.csv";
+                 string pathOleg = @"..\..\DataOleg.csv";
                  {
                      int p = 200;
                      for (int n = 2; n < p; n++) {
@@ -229,12 +192,10 @@ namespace ALG_LAB1 {
                          
                          stopwatch.Stop();
                          string time = (stopwatch.ElapsedTicks).ToString();
-                         File.AppendAllText(path10_1, time + ";");
+                         File.AppendAllText(pathOleg, time + ";");
                      }
                  }
             }
-            
-            DoTask10_1();
         }
     }
 }
