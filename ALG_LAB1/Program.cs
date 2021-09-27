@@ -30,14 +30,14 @@ namespace ALG_LAB1 {
             }
 
             // I-2 Алгоритм "Сумма элементов" +
-            static void DoTaskI2() {
+            static void DoTaskI2(List<int> v) {
                 string path2 = @"..\..\Data2.csv";
                 for (int i = 0; i < 2000; i++) {
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
                     int sum = 0;
                     for (int j = 1; j <= i; j++) {
-                        sum += j;
+                        sum += v[i];
                     }
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
@@ -46,14 +46,14 @@ namespace ALG_LAB1 {
             }
 
             // I-3 Алгоритм "Произведение элементов" ?
-            static void DoTaskI3() {
+            static void DoTaskI3(List<int> v) {
                 string path3 = @"..\..\Data3.csv";
-                for (int i = 1; i < 2000; i++) {
+                for (int i = 0; i < 2000; i++) {
                     Stopwatch stopwatch = new Stopwatch();
                     int multiplic = 1;
                     stopwatch.Start();
                     for (int j = 1; j <= i; j++) {
-                        multiplic = multiplic * j;
+                        multiplic = multiplic * v[i];
                     }
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
