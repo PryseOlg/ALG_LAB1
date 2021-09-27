@@ -62,7 +62,6 @@ namespace ALG_LAB1 {
             }
             
             // I-4 Алгоритм "Хуйня какая-то" -
-            // Как это сделать????
 
             // I-5 Алгоритм "Bubble sort" +
             static void DoTaskI5(int N, List<int> v) {
@@ -259,8 +258,37 @@ namespace ALG_LAB1 {
                      }
                  }
             }
+            
+            // III-Ashat Алгоритм "Формула сочетания(теор. вер.)"
+            static void DoTaskAshat() {
+                static int fact(int x) {
+                    int answer = 1;
+                    for (int i = x; i > 1; i--) {
+                        answer = answer * i;
+                    }
 
-            DoTaskI8();
+                    return answer;
+                }
+                string pathAshat = @"..\..\DataAshat.csv";
+                int n = 2000;
+                for (int j = 1; j <= n; j++) {
+
+                    for (int i = 1; i < n; i++) {
+                        Stopwatch stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                        int a = fact(n);
+                        int b = fact(i);
+                        int c = fact(n - i);
+                        b = b * c;
+                        a = a / b;
+                        stopwatch.Stop();
+                        string time = (stopwatch.ElapsedTicks).ToString();
+                        File.AppendAllText(pathAshat, time + ";");
+                    }
+                }
+            }
+
+            DoTaskAshat();
         }
     }
     class GFG
