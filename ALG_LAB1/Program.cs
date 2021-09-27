@@ -6,6 +6,14 @@ using System.Collections.Generic;
 namespace ALG_LAB1 {
     class Program {
         static void Main(string[] args) {
+            int N = 2000;
+            List<int> v = new List<int>();
+            Random rnd = new Random();
+            for (int i = 0; i < N; i++)
+            {
+                int value = rnd.Next(2000);
+                v.Add(value);
+            }
             // I-1 Задание "Постоянная функция" +
             static void DoTaskI1() {
                 string path = @"..\..\Data1.csv";
@@ -56,34 +64,23 @@ namespace ALG_LAB1 {
             // I-4 Алгоритм "Хуйня какая-то" -
 
             // I-5 Алгоритм "Bubble sort" +
-            static void DoTaskI5() {
+            static void DoTaskI5(int N, List<int> v) {
                 string path = @"..\..\Data5.csv";
-                int N = 2000;
-                List<int> v = new List<int>();
-                Random rnd = new Random();
-                for (int i = 0; i < N; i++) {
-                    int value = rnd.Next(2000);
-                    v.Add(value);
-                }
-
                 for (int i = 0; i < N; i++) {
                     Stopwatch stopwatch = new Stopwatch();
-                    int[] nums = new int[i];
-                    for (int j = 0; j < i; j++) {
-                        nums[j] = j;
-                    }
-
                     stopwatch.Start();
-                    for (int j = 0; j < i; j++) {
-                        for (int z = 0; z < i - 1; z++) {
-                            if (nums[z] < nums[z + 1]) {
-                                int x = nums[z];
-                                nums[z] = nums[z + 1];
-                                nums[z + 1] = x;
+                    for (int j = 0; j < i; j++)
+                    {
+                        for (int z = 0; z < i - 1; z++)
+                        {
+                            if (v[z] < v[z + 1])
+                            {
+                                int x = v[z];
+                                v[z] = v[z + 1];
+                                v[z + 1] = x;
                             }
                         }
                     }
-
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
                     File.AppendAllText(path, time + ";");
