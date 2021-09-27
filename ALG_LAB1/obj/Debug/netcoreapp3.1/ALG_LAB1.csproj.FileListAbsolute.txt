@@ -1,0 +1,13 @@
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.exe
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.deps.json
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.runtimeconfig.json
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.runtimeconfig.dev.json
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.dll
+D:\programs\Labs\lab1\ALG_LAB1\bin\Debug\netcoreapp3.1\ALG_LAB1.pdb
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.csprojAssemblyReference.cache
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.AssemblyInfoInputs.cache
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.AssemblyInfo.cs
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.csproj.CoreCompileInputs.cache
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.dll
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.pdb
+D:\programs\Labs\lab1\ALG_LAB1\obj\Debug\netcoreapp3.1\ALG_LAB1.genruntimeconfig.cache
