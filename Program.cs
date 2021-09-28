@@ -14,6 +14,7 @@ namespace ALG_LAB1 {
                 int value = rnd.Next(2000);
                 v.Add(value);
             }
+            MatrixMultiply();
             // I-1 Задание "Постоянная функция" +
             static void DoTaskI1() {
                 string path = @"..\..\Data1.csv";
@@ -210,29 +211,35 @@ namespace ALG_LAB1 {
             }
             
             //II-Matrix
-            static void MatrixMultiply(int N) {
+            static void MatrixMultiply() {
+                int N = 500;
                 for (int x = 0; x < N; x++) {
                     string pathMatrix = @"..\..\DataMatrix.csv";
                     Random rnd = new Random();
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
-                    int[,] mas1 = new int[N, N];
-                    int[,] mas2 = new int[N, N];
-                    for (int i = 0; i < N; i++)
-                    for (int j = 0; j < N; j++) {
-                        mas1[i, j] = rnd.Next();
-                        mas2[i, j] = rnd.Next();
+                    int[,] mas1 = new int[x, x];
+                    int[,] mas2 = new int[x, x];
+                    for (int i = 0; i < x; i++)
+                    {
+                        for (int j = 0; j < x; j++)
+                        {
+                            mas1[i, j] = rnd.Next(10);
+                            mas2[i, j] = rnd.Next(10);
+                        }
                     }
-
-                    int[,] result = new int[N, N];
-                    for (int i = 0; i < N; i++) {
-                        for (int j = 0; j < N; j++) {
-                            for (int k = 0; k < N; k++) {
+                    int[,] result = new int[x, x];
+                    stopwatch.Start();
+                    for (int i = 0; i < x; i++)
+                    {
+                        for (int j = 0; j < x; j++)
+                        {
+                            for (int k = 0; k < x; k++)
+                            {
                                 result[i, j] += mas1[i, k] * mas2[k, j];
                             }
                         }
                     }
-
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
                     File.AppendAllText(pathMatrix, time + ";");
