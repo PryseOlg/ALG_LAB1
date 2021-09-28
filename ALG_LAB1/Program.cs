@@ -61,8 +61,28 @@ namespace ALG_LAB1 {
                 }
             }
             
-            // I-4 Алгоритм "Хуйня какая-то" -
-
+            // I-4 Алгоритм "Полином" 
+            static void DoTaskI4() {
+                Stopwatch stopwatch = new Stopwatch();
+                Random Rnd = new Random(1);
+                string path = @"..\..\Data4.csv";
+                
+                int v = Rnd.Next();
+                var x = 1.5;
+                double p = 0;
+                int k = 2000;
+                
+                for (int j = 1; j <= k; j++) {
+                    stopwatch.Start();
+                    p += v * Math.Pow(x, j - 1);
+                    stopwatch.Stop();
+                    string time = (stopwatch.ElapsedTicks).ToString();
+                    File.AppendAllText(path, time + ";");
+                }
+                    
+                
+            }
+            
             // I-5 Алгоритм "Bubble sort" +
             static void DoTaskI5(int N, List<int> v) {
                 string path = @"..\..\Data5.csv";
@@ -142,7 +162,7 @@ namespace ALG_LAB1 {
                     File.AppendAllText(path, time + ";");
                 }
             }
-            
+
             // I-7 Алгоритм "Timsort" +
             static void DoTaskI7() {
                 int[] arr = new int[2000];
@@ -171,12 +191,12 @@ namespace ALG_LAB1 {
                     //GFG.printArray(arr, n);
                 }
             }
-            
+
             // I-8 Алгоритм "Возведение в степень" ?
             static void DoTaskI8() {
                 string path8 = @"..\..\Data8.csv";
                 int n = 7; // Степень числа
-                for (int i = 1; i < 10000; i++) { // Лимит
+                for (int i = 1; i < 2000; i++) { // Лимит
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
                     decimal c = i;
@@ -195,13 +215,11 @@ namespace ALG_LAB1 {
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
                     File.AppendAllText(path8, time + ";");
-                    Console.WriteLine(f);
-                    
                 }
                 
             }
-            
-            //II-Matrix
+
+            // II-Matrix
             static void MatrixMultiply(int N) {
                 for (int x = 0; x < N; x++) {
                     string pathMatrix = @"..\..\DataMatrix.csv";
@@ -247,7 +265,7 @@ namespace ALG_LAB1 {
                 }
                  string pathOleg = @"..\..\DataOleg.csv";
                  {
-                     int p = 200;
+                     int p = 2000; // Лимит
                      for (int n = 2; n < p; n++) {
                          Stopwatch stopwatch = new Stopwatch();
                          stopwatch.Start();
@@ -288,7 +306,6 @@ namespace ALG_LAB1 {
                  }
             }
             
-            // Моя ветка
         }
     }
     class GFG
