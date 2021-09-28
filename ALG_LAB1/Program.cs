@@ -287,6 +287,8 @@ namespace ALG_LAB1 {
                      }
                  }
             }
+            
+            // Моя ветка
         }
     }
     class GFG
