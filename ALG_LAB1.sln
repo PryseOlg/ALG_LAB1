@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG_LAB1", "ALG_LAB1\ALG_LAB1.csproj", "{23807AEE-4CC9-44F7-A447-EC89BC7962B5}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ALG_LAB1", "ALG_LAB1.csproj", "{9866B388-AD89-4750-92D1-DDF1FD9A6589}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23807AEE-4CC9-44F7-A447-EC89BC7962B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23807AEE-4CC9-44F7-A447-EC89BC7962B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23807AEE-4CC9-44F7-A447-EC89BC7962B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23807AEE-4CC9-44F7-A447-EC89BC7962B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9866B388-AD89-4750-92D1-DDF1FD9A6589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9866B388-AD89-4750-92D1-DDF1FD9A6589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9866B388-AD89-4750-92D1-DDF1FD9A6589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9866B388-AD89-4750-92D1-DDF1FD9A6589}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38B71A76-33FD-42D5-9B86-372FE985FC24}
 	EndGlobalSection
 EndGlobal
