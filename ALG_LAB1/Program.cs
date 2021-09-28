@@ -64,9 +64,17 @@ namespace ALG_LAB1 {
             // I-4 Алгоритм "Хуйня какая-то" -
 
             // I-5 Алгоритм "Bubble sort" +
-            static void DoTaskI5(int N, List<int> v) {
+            static void DoTaskI5() {
                 string path = @"..\..\Data5.csv";
+                int N = 2000;
                 for (int i = 0; i < N; i++) {
+                    List<int> v = new List<int>();
+                    Random rnd = new Random();
+                    for (int k = 0; k < i; k++)
+                    {
+                        int value = rnd.Next(2000);
+                        v.Add(value);
+                    }
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
                     for (int j = 0; j < i; j++)
@@ -232,8 +240,9 @@ namespace ALG_LAB1 {
             }
 
             // III-Oleg Алгоритм "Сортировка в двумерном массиве по строке" +
-            static void DoTaskOleg() {
-                 static void print(int[,] mass)
+            static void DoTaskOleg()
+            {
+                static void print(int[,] mass)
                 {
                     int n = mass.GetLength(0);
                     for (int i = 0; i < n; i++)
@@ -245,47 +254,83 @@ namespace ALG_LAB1 {
                         Console.WriteLine();
                     }
                 }
-                 string pathOleg = @"..\..\DataOleg.csv";
-                 {
-                     int p = 200;
-                     for (int n = 2; n < p; n++) {
-                         Stopwatch stopwatch = new Stopwatch();
-                         stopwatch.Start();
-                         int[,] mass = new int[n, n];
-                         int[] index = new int[n];
-                         int[,] mass1 = new int[n, n];
-                         int[] mass1dim = new int[n];
-                         int строка = 1; // задаем строку
- 
-                         Random rnd = new Random();
-                         for (int i = 0; i < n; i++)
-                         {
-                             index[i] = i;
-                             for (int j = 0; j < n; j++)
-                                 mass[i, j] = rnd.Next(50);
-                         }
-                         //Array.Copy(mass, 0, mass1, 0, mass.Length); 
-                         //Console.WriteLine("Начальная состояние  ");
-                         //print(mass);
-                         
-                         // Сортировка по заданной строке
-                         for (int j = 0; j < n; j++)
-                             mass1dim[j] = mass[строка, j];
- 
-                         Array.Sort(mass1dim ,index );   
- 
-                         for (int j = 0; j < n  ; j++)
-                         for (int g = 0; g < n; g++)
-                             mass[j , g] = mass1[j , index[g]];
-                         
-                         //Console.WriteLine("Отсортировано по заданной строке {0}", строка + 1);
-                         //print(mass);
-                         
-                         stopwatch.Stop();
-                         string time = (stopwatch.ElapsedTicks).ToString();
-                         File.AppendAllText(pathOleg, time + ";");
-                     }
-                 }
+                string pathOleg = @"..\..\DataOleg.csv";
+                {
+                    int p = 200;
+                    for (int n = 2; n < p; n++)
+                    {
+                        Stopwatch stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                        int[,] mass = new int[n, n];
+                        int[] index = new int[n];
+                        int[,] mass1 = new int[n, n];
+                        int[] mass1dim = new int[n];
+                        int строка = 1; // задаем строку
+
+                        Random rnd = new Random();
+                        for (int i = 0; i < n; i++)
+                        {
+                            index[i] = i;
+                            for (int j = 0; j < n; j++)
+                                mass[i, j] = rnd.Next(50);
+                        }
+                        //Array.Copy(mass, 0, mass1, 0, mass.Length); 
+                        //Console.WriteLine("Начальная состояние  ");
+                        //print(mass);
+
+                        // Сортировка по заданной строке
+                        for (int j = 0; j < n; j++)
+                            mass1dim[j] = mass[строка, j];
+
+                        Array.Sort(mass1dim, index);
+
+                        for (int j = 0; j < n; j++)
+                            for (int g = 0; g < n; g++)
+                                mass[j, g] = mass1[j, index[g]];
+
+                        //Console.WriteLine("Отсортировано по заданной строке {0}", строка + 1);
+                        //print(mass);
+
+                        stopwatch.Stop();
+                        string time = (stopwatch.ElapsedTicks).ToString();
+                        File.AppendAllText(pathOleg, time + ";");
+                    }
+                }
+            }
+            // III Сотртировка выбором
+            static void SelectionSort()
+            {
+                int N = 2000;
+                for (int i = 0; i < N; i++)
+                {
+                    int[] v = new int[i];
+                    Random rnd = new Random();
+                    for (int j = 0; j < i; j++)
+                    {
+                        int value = rnd.Next(2000);
+                        v[j] = value;
+                    }
+                    string PathSelSort = @"..\..\DataSelSort.csv";
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    for (int j = 0; j < i - 1; j++)
+                    {
+                        int min = j;
+                        for (int k = j + 1; k < i; k++)
+                        {
+                            if (v[min] > v[k])
+                            {
+                                min = k;
+                            }
+                        }
+                        int temp = v[min];
+                        v[min] = v[j];
+                        v[j] = temp;
+                    }
+                    stopwatch.Stop();
+                    string time = (stopwatch.ElapsedTicks).ToString();
+                    File.AppendAllText(PathSelSort, time + ";");
+                }
             }
         }
     }
