@@ -14,6 +14,7 @@ namespace ALG_LAB1 {
                 int value = rnd.Next(2000);
                 v.Add(value);
             }
+            SelectionSort();
             // I-1 Задание "Постоянная функция" +
             static void DoTaskI1() {
                 string path = @"..\..\Data1.csv";
