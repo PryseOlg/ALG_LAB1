@@ -221,11 +221,10 @@ namespace ALG_LAB1 {
 
             // II-Matrix
             static void MatrixMultiply(int N) {
-                for (int x = 0; x < N; x++) {
+               
                     string pathMatrix = @"..\..\DataMatrix.csv";
                     Random rnd = new Random();
-                    Stopwatch stopwatch = new Stopwatch();
-                    stopwatch.Start();
+                    
                     int[,] mas1 = new int[N, N];
                     int[,] mas2 = new int[N, N];
                     for (int i = 0; i < N; i++)
@@ -233,7 +232,9 @@ namespace ALG_LAB1 {
                         mas1[i, j] = rnd.Next();
                         mas2[i, j] = rnd.Next();
                     }
-
+                    
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
                     int[,] result = new int[N, N];
                     for (int i = 0; i < N; i++) {
                         for (int j = 0; j < N; j++) {
@@ -246,8 +247,9 @@ namespace ALG_LAB1 {
                     stopwatch.Stop();
                     string time = (stopwatch.ElapsedTicks).ToString();
                     File.AppendAllText(pathMatrix, time + ";");
-                }
+                
             }
+            
 
             // III-Oleg Алгоритм "Сортировка в двумерном массиве по строке" +
             static void DoTaskOleg() {
@@ -306,6 +308,43 @@ namespace ALG_LAB1 {
                  }
             }
             
+            // III Сотртировка выбором
+            static void SelectionSort()
+            {
+                int N = 2000;
+                for (int i = 0; i < N; i++)
+                {
+                    int[] v = new int[i];
+                    Random rnd = new Random();
+                    for (int j = 0; j < i; j++)
+                    {
+                        int value = rnd.Next(2000);
+                        v[j] = value;
+                    }
+                    string PathSelSort = @"..\..\DataSelSort.csv";
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    for (int j = 0; j < i - 1; j++)
+                    {
+                        int min = j;
+                        for (int k = j + 1; k < i; k++)
+                        {
+                            if (v[min] > v[k])
+                            {
+                                min = k;
+                            }
+                        }
+                        int temp = v[min];
+                        v[min] = v[j];
+                        v[j] = temp;
+                    }
+                    stopwatch.Stop();
+                    string time = (stopwatch.ElapsedTicks).ToString();
+                    File.AppendAllText(PathSelSort, time + ";");
+                }
+            }
+            
+            SelectionSort();
         }
     }
     class GFG
